@@ -1,0 +1,53 @@
+#taskList .strike {
+    text-decoration: line-through;
+}
+
+#taskList .description {
+    font-family: "Lobster", cursive;
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+#taskList input {
+    margin-right: 10px;
+}
+
+#taskList button {
+    float: right;
+    margin-top: 5px;
+    font-size: 13px;
+    visibility: hidden;
+}
+
+#taskList .list-group-item:hover button {
+    visibility: visible;
+}
+
+#taskList .list-group-item:hover {
+    cursor: pointer;
+    background-color: orange;
+}
+
+#clearTasks {
+    float: right;
+}
+
+.task {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    transition: all 0.3s;
+    overflow: hidden;
+}
+
+.task.ng-leave.ng-leave-active .task.ng-enter {
+    height: 0px;
+    padding: 0px 15px;
+}
+
+.task.ng-leave .task.ng-enter.ng-enter-active {
+    height: 50px;
+    padding: 10px 15px;
+}

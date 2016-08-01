@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>To-Do list App</title>
+    <link rel="stylesheet" type="text/css" href="app.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap.css">
+</head>
+
+<body ng-app="todoApp" ng-controller="todocontroller" class="container">
+    <div class="row-fluid">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="jumbotron">
+                <h1>My Todo App</h1>
+                <form ng-submit="addTodo()">
+                    <div class="input-group input-group-lg">
+                        <input type="text" ng-model="newTask" class="form-control input-lg" />
+                        <span class="input-group-btn"><button type="submit" class="btn btn-default">Add Todo</button>
+    </span>
+                    </div>
+                </form>
+            </div>
+            <div id="taskList" class="list-group">
+                <div ng-repeat="task in taskList" class="list-group-item task">
+                    <label class="description" ng-class="{strike: task.done}">
+                        <input type="checkbox" ng-model="task.done" /> {{task.description}}
+                    </label>
+                    <button ng-click="deleteTodo($index)" class="btn btn-primary btn-xs">Delete</button>
+                </div>
+            </div>
+            <span id="todo-count">
+    <h4>{{pendingCount}}
+    <ng-pluralize count="pendingCount" when="{one: 'item left', other:'items left'}"></ng-pluralize>
+    <button id="clearTasks" ng-show="pendingCount < taskList.length" ng-click="clearCompleted()" class="btn btn-default">
+      Clear Completed {{taskList.length - pendingCount}}
+    </button>
+
+    </h4>
+  </span>
+        </div>
+    </div>
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="angular-animate.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="controller.js"></script>
+</body>
+
+</html>
